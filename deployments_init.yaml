@@ -97,7 +97,7 @@ spec:
         app: flask
     spec:
       containers:
-      - image: flask:v1
+      - image: flaskapp:v1
         imagePullPolicy: IfNotPresent
         name: flask
         ports:

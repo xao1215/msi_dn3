@@ -23,7 +23,7 @@ spec:
         app: flask2
     spec:
       containers:
-      - image: flask:v2
+      - image: flaskapp:v2
         imagePullPolicy: IfNotPresent
         name: flask2
         ports:
@@ -31,5 +31,4 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 
----
 

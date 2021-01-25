@@ -51,23 +51,33 @@ def ready():
    
         """
     else:
-        return """
-        <body style="background-color:#0c0c0d; color:#ffffff; width:100%; height:100%;">
-
-        <h1 style='text-align: center; color: white;'> NOT READY </h1>
-   
-        """
+        abort(500)
 
         
     
 
 @app.route('/')
 def hello():
-    time.sleep(0.5)
+    time.sleep(0.25)
     insert()
     redis.incr("counter")
     counter = redis.get("counter").decode("utf8")
     lel = give_containers()
+    a = "/"
+    b = "/"
+    c = "/"
+    try:
+        a = lel[0]['id']
+    except:
+        pass
+    try:
+        b = lel[1]['id']
+    except:
+        pass
+    try:
+        c = lel[2]['id']
+    except:
+        pass
 
     return """
     <body style="background-color:#0c0c0d; color:#ffffff; width:100%; height:100%;">
@@ -76,7 +86,7 @@ def hello():
     <p style="text-align: center;"> Total visits: <label style="color:#97fc32">{}<label> </p>
     <p style="text-align: center;"> Some previous containers: <label style="color:#32affc">{} {} {}<label> </p>
     </body>
-    """.format(hostname,counter,lel[1]["id"],lel[2]["id"],lel[3]["id"])
+    """.format(hostname,counter,a,b,c)
 
 
 if __name__ == '__main__':

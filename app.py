@@ -35,11 +35,34 @@ def give_containers():
 
 @app.route('/')
 def hello():
-    time.sleep()
+    # time.sleep()
     insert()
     redis.incr("counter")
     counter = redis.get("counter").decode("utf8")
     lel = give_containers()
+    a = "/"
+    b = "/"
+    c = "/"
+    try:
+        a = lel[0]['id']
+    except:
+        pass
+    try:
+        b = lel[1]['id']
+    except:
+        pass
+    try:
+        c = lel[2]['id']
+    except:
+        pass
+    # if len(lel) > 0:
+    #     one = lel[0]['id']
+    # if len(lel) > 1:
+    #     two = lel[1]['id']
+    # if len(lel) > 2:
+    #     three = lel[2]['id']
+        
+
 
     return """
     <body style="background-color:#0c0c0d; color:#ffffff; width:100%; height:100%;">
@@ -48,7 +71,8 @@ def hello():
     <p style="text-align: center;"> Total visits: <label style="color:#97fc32">{}<label> </p>
     <p style="text-align: center;"> Some previous containers: <label style="color:#32affc">{} {} {}<label> </p>
     </body>
-    """.format(hostname,counter,lel[1]["id"],lel[2]["id"],lel[3]["id"])
+    """.format(hostname,counter,a,b,c)
+    # .format(hostname,counter,one,two,three)
 
 
 if __name__ == '__main__':
