@@ -29,4 +29,6 @@ kubectl apply -f deployment_rolling.yaml
 ![stanje po ukazu](https://github.com/xao1215/msi_dn3/blob/main/b.PNG)
 
 flask aplikacija rabi 5 sekund preden začne delovat, zato liveness in readiness probe počakata 7 sekund preden začneta poizvedovat po stanju poda vsakih 5 sekund.
+<br>
+(Ingressa mi še vedno ni uspelo izprobati z minikubom, kubernetesa v virtualkah mi tudi ni uspelo popravit)
 
